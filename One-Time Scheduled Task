@@ -1,0 +1,3 @@
+$action = New-ScheduledTaskAction -Execute "PowerShell.exe" -Argument "-File 'Path\To\BackupVM.ps1'"
+$trigger = New-ScheduledTaskTrigger -Once -At (Get-Date).Date.AddHours(1)
+Register-ScheduledTask -TaskName "VMWARE SCCM Backup" -Action $action -Trigger $trigger -Description "One-time backup for VMWARE SCCM Project"
